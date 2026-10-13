@@ -1,0 +1,15 @@
+{
+  "name": "awesome-x402-apis",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Awesome list of pay-per-request APIs that accept x402 payments",
+  "scripts": {
+    "generate": "node scripts/generate-readme.mjs",
+    "test": "node --test",
+    "lint": "npx awesome-lint"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

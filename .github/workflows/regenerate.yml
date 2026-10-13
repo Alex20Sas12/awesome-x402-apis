@@ -1,0 +1,31 @@
+name: Regenerate README
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: 20
+      - run: npm test
+      - run: node scripts/generate-readme.mjs
+      - name: Open or update the regeneration PR
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: bot/regenerate-readme
+          base: main
+          add-paths: README.md
+          commit-message: 'chore: regenerate README'
+          title: 'chore: regenerate README'
+          body: Automated regeneration from the public payapi.market catalogue.

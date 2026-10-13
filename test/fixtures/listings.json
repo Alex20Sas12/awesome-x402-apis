@@ -1,0 +1,462 @@
+{
+  "results": [
+    {
+      "id": "a1",
+      "slug": "acme-alpha",
+      "name": "Acme Alpha",
+      "description": "Fake description for Acme Alpha.",
+      "category": "Data",
+      "provider_name": "Acme Data",
+      "base_url": "https://acmedata.example.com/v1/a1",
+      "price_min": 0.01,
+      "price_max": 0.01,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 3,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xa1",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xa1"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/acme-alpha",
+      "reliability": {
+        "score": 60
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "slug": "acme-bravo",
+      "name": "Acme Bravo",
+      "description": "Fake description for Acme Bravo.",
+      "category": "Data",
+      "provider_name": "Acme Data",
+      "base_url": "https://acmedata.example.com/v1/a2",
+      "price_min": 0.01,
+      "price_max": 0.01,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xa2",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xa2"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/acme-bravo",
+      "reliability": {
+        "score": 90
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "slug": "acme-charlie",
+      "name": "Acme Charlie",
+      "description": "Fake description for Acme Charlie.",
+      "category": "Data",
+      "provider_name": "Acme Data",
+      "base_url": "https://acmedata.example.com/v1/a3",
+      "price_min": 0.01,
+      "price_max": 0.01,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xa3",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xa3"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/acme-charlie",
+      "reliability": {
+        "score": 80
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "a4",
+      "slug": "acme-delta",
+      "name": "Acme Delta",
+      "description": "Fake description for Acme Delta.",
+      "category": "Data",
+      "provider_name": "Acme Data",
+      "base_url": "https://acmedata.example.com/v1/a4",
+      "price_min": 0.01,
+      "price_max": 0.01,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xa4",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xa4"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/acme-delta",
+      "reliability": {
+        "score": 70
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "a5",
+      "slug": "acme-echo",
+      "name": "Acme Echo",
+      "description": "Fake description for Acme Echo.",
+      "category": "Data",
+      "provider_name": "Acme Data",
+      "base_url": "https://acmedata.example.com/v1/a5",
+      "price_min": 0.01,
+      "price_max": 0.01,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xa5",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xa5"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/acme-echo",
+      "reliability": {
+        "score": 70
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "a6",
+      "slug": "acme-foxtrot",
+      "name": "Acme Foxtrot",
+      "description": "Fake description for Acme Foxtrot.",
+      "category": "Data",
+      "provider_name": "Acme Data",
+      "base_url": "https://acmedata.example.com/v1/a6",
+      "price_min": 0.01,
+      "price_max": 0.01,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xa6",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xa6"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/acme-foxtrot",
+      "reliability": {
+        "score": 50
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "a7",
+      "slug": "acme-golf",
+      "name": "Acme Golf",
+      "description": "Fake description for Acme Golf.",
+      "category": "Data",
+      "provider_name": "Acme Data",
+      "base_url": "https://acmedata.example.com/v1/a7",
+      "price_min": 0.01,
+      "price_max": 0.01,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 2,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xa7",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xa7"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/acme-golf",
+      "reliability": {
+        "score": 10
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "h1",
+      "slug": "house-oracle",
+      "name": "House Oracle",
+      "description": "Fake description for House Oracle.",
+      "category": "Tools",
+      "provider_name": "PayAPI Market",
+      "base_url": "https://payapimarket.example.com/v1/h1",
+      "price_min": 0.001,
+      "price_max": 0.25,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xh1",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xh1"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/house-oracle",
+      "reliability": {
+        "score": 70,
+        "band": "established"
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "p1",
+      "slug": "pipe-parser",
+      "name": "Pipe | Parser",
+      "description": "Parses a | b columns.\nSecond line that goes on for a while to make sure the description is trimmed on a word boundary somewhere.",
+      "category": "Tools",
+      "provider_name": "Beta Labs",
+      "base_url": "https://betalabs.example.com/v1/p1",
+      "price_min": 0.005,
+      "price_max": 0.1,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xp1",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xp1"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/pipe-parser",
+      "reliability": {
+        "score": 70,
+        "band": "established"
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        },
+        {
+          "id": "solana:x",
+          "key": "solana",
+          "label": "Solana",
+          "advertised": true,
+          "settlement_verified": false
+        },
+        {
+          "id": "eip155:1",
+          "key": "ethereum",
+          "label": "Ethereum",
+          "advertised": false,
+          "settlement_verified": false
+        }
+      ]
+    },
+    {
+      "id": "f1",
+      "slug": "fallback-chain",
+      "name": "Fallback Chain",
+      "description": "Fake description for Fallback Chain.",
+      "category": "Finance",
+      "provider_name": "Gamma Co",
+      "base_url": "https://gammaco.example.com/v1/f1",
+      "price_min": 1,
+      "price_max": 1.5,
+      "network": "solana",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xf1",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xf1"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/fallback-chain",
+      "reliability": {
+        "score": 70,
+        "band": "established"
+      },
+      "networks": []
+    },
+    {
+      "id": "u1",
+      "slug": "unverified-thing",
+      "name": "Unverified Thing",
+      "description": "Fake description for Unverified Thing.",
+      "category": "Finance",
+      "provider_name": "Delta Inc",
+      "base_url": "https://deltainc.example.com/v1/u1",
+      "price_min": 0.01,
+      "price_max": 0.01,
+      "network": "base",
+      "payment_verified": false,
+      "verified_route_count": 0,
+      "verified_routes": [],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/unverified-thing",
+      "reliability": {
+        "score": 70,
+        "band": "established"
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "d1",
+      "slug": "dead-thing",
+      "name": "Dead Thing",
+      "description": "Fake description for Dead Thing.",
+      "category": "Finance",
+      "provider_name": "Delta Inc",
+      "base_url": "https://deltainc.example.com/v1/d1",
+      "price_min": 0.01,
+      "price_max": 0.01,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xd1",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xd1"
+        }
+      ],
+      "status": "down",
+      "marketplace_url": "https://payapi.market/api/dead-thing",
+      "reliability": {
+        "score": 70,
+        "band": "established"
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    }
+  ]
+}
