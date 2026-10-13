@@ -223,9 +223,11 @@ export function renderReadme(listings, { date, externalMd = '' }) {
   if (more.length) {
     out.push('## More from these providers');
     out.push('');
+    out.push(`Providers with more than ${PER_PROVIDER_CAP} verified APIs. The rest are on [payapi.market](${MARKETPLACE_URL}).`);
+    out.push('');
     for (const { provider, count, slug } of more) {
-      const url = slug ? `${PROVIDER_URL}${slug}` : MARKETPLACE_URL;
-      out.push(`- ${provider}: [+${count} more on payapi.market](${url})`);
+      const label = `+${count} more`;
+      out.push(`- ${provider}: ${slug ? `[${label} on payapi.market](${PROVIDER_URL}${slug})` : label}`);
     }
     out.push('');
   }

@@ -74,13 +74,18 @@ test('cap keeps 5 per provider by routes, then reliability, then name', () => {
   assert.deepEqual(more, [{ provider: 'Acme Data', count: 2, slug: null }]);
 });
 
-test('"+N more" links to a provider search', () => {
+test('"+N more" is a plain line with one /marketplace link in the section intro', () => {
   const readme = renderReadme(fixture, { date: DATE });
-  assert.match(
-    readme,
-    /- Acme Data: \[\+2 more on payapi\.market\]\(https:\/\/payapi\.market\/marketplace\)$/m,
-  );
+  assert.match(readme, /^- Acme Data: \+2 more$/m);
+  assert.equal(readme.split('https://payapi.market/marketplace)').length - 1, 1);
+  assert.match(readme, /\[payapi\.market\]\(https:\/\/payapi\.market\/marketplace\)/);
   assert.ok(!readme.includes('Acme Echo'));
+});
+
+test('"+N more" uses /provider/<provider_slug> when the catalogue supplies one', () => {
+  const withSlug = fixture.map((i) => (i.provider_name === 'Acme Data' ? { ...i, provider_slug: 'acme-data-co' } : i));
+  const readme = renderReadme(withSlug, { date: DATE });
+  assert.match(readme, /^- Acme Data: \[\+2 more on payapi\.market\]\(https:\/\/payapi\.market\/provider\/acme-data-co\)$/m);
 });
 
 test('house APIs carry the (house) tag, others do not', () => {
@@ -133,13 +138,6 @@ test('header counts, disclosure and footer order', () => {
   const positions = order.map((s) => readme.indexOf(s));
   assert.deepEqual([...positions].sort((x, y) => x - y), positions);
   assert.ok(positions.every((p) => p >= 0));
-});
-
-test('"+N more" uses /provider/<provider_slug> when the catalogue supplies one', () => {
-  const withSlug = fixture.map((i) => (i.provider_name === 'Acme Data' ? { ...i, provider_slug: 'acme-data-co' } : i));
-  const readme = renderReadme(withSlug, { date: DATE });
-  assert.match(readme, /\[\+2 more on payapi\.market\]\(https:\/\/payapi\.market\/provider\/acme-data-co\)/);
-  assert.ok(!readme.includes('payapi.market/marketplace)'));
 });
 
 test('rows sharing a marketplace_url keep every row and link to /marketplace/<id>', () => {
