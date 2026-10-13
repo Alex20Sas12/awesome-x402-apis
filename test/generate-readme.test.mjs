@@ -6,6 +6,7 @@ import {
   cleanListings,
   applyProviderCap,
   renderReadme,
+  providerSlug,
   formatPrice,
   trimDescription,
 } from '../scripts/generate-readme.mjs';
@@ -78,7 +79,7 @@ test('"+N more" links to a provider search', () => {
   const readme = renderReadme(fixture, { date: DATE });
   assert.match(
     readme,
-    /- Acme Data: \[\+2 more on payapi\.market\]\(https:\/\/payapi\.market\/search\?q=Acme%20Data\)/,
+    /- Acme Data: \[\+2 more on payapi\.market\]\(https:\/\/payapi\.market\/provider\/acme-data\)/,
   );
   assert.ok(!readme.includes('Acme Echo'));
 });
@@ -133,4 +134,22 @@ test('header counts, disclosure and footer order', () => {
   const positions = order.map((s) => readme.indexOf(s));
   assert.deepEqual([...positions].sort((x, y) => x - y), positions);
   assert.ok(positions.every((p) => p >= 0));
+});
+
+test('provider slug lowercases and collapses non-alphanumerics', () => {
+  assert.equal(providerSlug('Acme Data'), 'acme-data');
+  assert.equal(providerSlug('  PayAPI -- Market!! '), 'payapi-market');
+});
+
+test('rows sharing a marketplace_url keep every row and link to /marketplace/<id>', () => {
+  const dupA = { ...fixture[7], id: 'dup-a', name: 'Shared One', marketplace_url: 'https://payapi.market/api/shared' };
+  const dupB = { ...fixture[7], id: 'dup-b', name: 'Shared Two', marketplace_url: 'https://payapi.market/api/shared' };
+  const readme = renderReadme([...fixture, dupA, dupB], { date: DATE });
+  const rows = readme.split('\n').filter((l) => l.includes('Shared '));
+  assert.equal(rows.length, 2);
+  assert.match(rows[0], /\[payapi\]\(https:\/\/payapi\.market\/marketplace\/dup-a\)/);
+  assert.match(rows[1], /\[payapi\]\(https:\/\/payapi\.market\/marketplace\/dup-b\)/);
+  assert.ok(!readme.includes('https://payapi.market/api/shared)'));
+  // unshared rows keep their own marketplace_url
+  assert.match(readme, /\(https:\/\/payapi\.market\/api\/house-oracle\)/);
 });

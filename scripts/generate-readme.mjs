@@ -7,7 +7,8 @@ import path from 'node:path';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LIST_URL = 'https://payapi.market/agent/list';
-const SEARCH_URL = 'https://payapi.market/search';
+const PROVIDER_URL = 'https://payapi.market/provider/';
+const LISTING_URL = 'https://payapi.market/marketplace/';
 const MAX_PAGES = 50;
 const MAX_ATTEMPTS = 3;
 const PER_PROVIDER_CAP = 5;
@@ -139,7 +140,15 @@ function siteLink(item) {
   }
 }
 
-export function renderRow(item) {
+export function providerSlug(name) {
+  return String(name ?? '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+// Rows that share a marketplace_url get a per-id link so every row stays unique.
+export function renderRow(item, sharedUrls = new Set()) {
+  const listingUrl = sharedUrls.has(item.marketplace_url)
+    ? `${LISTING_URL}${item.id}`
+    : item.marketplace_url;
   const name = escapeCell(item.name).replace(/([[\]])/g, '\\$1') + (isHouse(item) ? ' (house)' : '');
   const linkedName = `[${name}](${siteLink(item)})`;
   const receipt = (item.verified_routes ?? []).map((r) => r.receipt_url).find(Boolean);
@@ -150,7 +159,7 @@ export function renderRow(item) {
     formatPrice(item.price_min, item.price_max),
     escapeCell(formatChains(item)),
     verified,
-    `[payapi](${item.marketplace_url})`,
+    `[payapi](${listingUrl})`,
   ];
 }
 
@@ -177,6 +186,9 @@ export function renderReadme(listings, { date, externalMd = '' }) {
     byCategory.get(cat).push(item);
   }
   const categories = [...byCategory.keys()].sort(cmp);
+  const urlCounts = new Map();
+  for (const item of kept) urlCounts.set(item.marketplace_url, (urlCounts.get(item.marketplace_url) ?? 0) + 1);
+  const sharedUrls = new Set([...urlCounts].filter(([, n]) => n > 1).map(([u]) => u));
 
   const contents = categories.map((c) => c);
   if (more.length) contents.push('More from these providers');
@@ -204,7 +216,7 @@ export function renderReadme(listings, { date, externalMd = '' }) {
     out.push(`## ${cat}`);
     out.push('');
     const items = byCategory.get(cat).sort((a, b) => cmp(a.name, b.name) || cmp(a.id, b.id));
-    out.push(...renderTable(TABLE_HEADER, items.map(renderRow)));
+    out.push(...renderTable(TABLE_HEADER, items.map((item) => renderRow(item, sharedUrls))));
     out.push('');
   }
 
@@ -212,7 +224,7 @@ export function renderReadme(listings, { date, externalMd = '' }) {
     out.push('## More from these providers');
     out.push('');
     for (const { provider, count } of more) {
-      const url = `${SEARCH_URL}?q=${encodeURIComponent(provider)}`;
+      const url = `${PROVIDER_URL}${providerSlug(provider)}`;
       out.push(`- ${provider}: [+${count} more on payapi.market](${url})`);
     }
     out.push('');
