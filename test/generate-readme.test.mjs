@@ -6,7 +6,6 @@ import {
   cleanListings,
   applyProviderCap,
   renderReadme,
-  providerSlug,
   formatPrice,
   trimDescription,
 } from '../scripts/generate-readme.mjs';
@@ -72,14 +71,14 @@ test('cap keeps 5 per provider by routes, then reliability, then name', () => {
   const { kept, more } = applyProviderCap(cleanListings(fixture));
   const acme = kept.filter((i) => i.provider_name === 'Acme Data').map((i) => i.name);
   assert.deepEqual(acme, ['Acme Alpha', 'Acme Golf', 'Acme Bravo', 'Acme Charlie', 'Acme Delta']);
-  assert.deepEqual(more, [{ provider: 'Acme Data', count: 2 }]);
+  assert.deepEqual(more, [{ provider: 'Acme Data', count: 2, slug: null }]);
 });
 
 test('"+N more" links to a provider search', () => {
   const readme = renderReadme(fixture, { date: DATE });
   assert.match(
     readme,
-    /- Acme Data: \[\+2 more on payapi\.market\]\(https:\/\/payapi\.market\/provider\/acme-data\)/,
+    /- Acme Data: \[\+2 more on payapi\.market\]\(https:\/\/payapi\.market\/marketplace\)$/m,
   );
   assert.ok(!readme.includes('Acme Echo'));
 });
@@ -136,9 +135,11 @@ test('header counts, disclosure and footer order', () => {
   assert.ok(positions.every((p) => p >= 0));
 });
 
-test('provider slug lowercases and collapses non-alphanumerics', () => {
-  assert.equal(providerSlug('Acme Data'), 'acme-data');
-  assert.equal(providerSlug('  PayAPI -- Market!! '), 'payapi-market');
+test('"+N more" uses /provider/<provider_slug> when the catalogue supplies one', () => {
+  const withSlug = fixture.map((i) => (i.provider_name === 'Acme Data' ? { ...i, provider_slug: 'acme-data-co' } : i));
+  const readme = renderReadme(withSlug, { date: DATE });
+  assert.match(readme, /\[\+2 more on payapi\.market\]\(https:\/\/payapi\.market\/provider\/acme-data-co\)/);
+  assert.ok(!readme.includes('payapi.market/marketplace)'));
 });
 
 test('rows sharing a marketplace_url keep every row and link to /marketplace/<id>', () => {

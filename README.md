@@ -310,9 +310,9 @@ Maintained by PayAPI Market. Listings come from payapi.market's public catalogue
 
 ## More from these providers
 
-- AutoScrape: [+33 more on payapi.market](https://payapi.market/provider/autoscrape)
-- LoneStarOracle: [+3 more on payapi.market](https://payapi.market/provider/lonestaroracle)
-- PayAPI Market: [+4 more on payapi.market](https://payapi.market/provider/payapi-market)
+- AutoScrape: [+33 more on payapi.market](https://payapi.market/marketplace)
+- LoneStarOracle: [+3 more on payapi.market](https://payapi.market/marketplace)
+- PayAPI Market: [+4 more on payapi.market](https://payapi.market/marketplace)
 
 ## Other x402 APIs
 

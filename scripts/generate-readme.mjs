@@ -8,6 +8,7 @@ import path from 'node:path';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LIST_URL = 'https://payapi.market/agent/list';
 const PROVIDER_URL = 'https://payapi.market/provider/';
+const MARKETPLACE_URL = 'https://payapi.market/marketplace';
 const LISTING_URL = 'https://payapi.market/marketplace/';
 const MAX_PAGES = 50;
 const MAX_ATTEMPTS = 3;
@@ -86,7 +87,10 @@ export function applyProviderCap(items, cap = PER_PROVIDER_CAP) {
         cmp(a.id, b.id),
     );
     kept.push(...group.slice(0, cap));
-    if (group.length > cap) more.push({ provider, count: group.length - cap });
+    if (group.length > cap) {
+      const slug = group.find((i) => i.provider_slug)?.provider_slug ?? null;
+      more.push({ provider, count: group.length - cap, slug });
+    }
   }
   more.sort((a, b) => cmp(a.provider, b.provider));
   return { kept, more };
@@ -138,10 +142,6 @@ function siteLink(item) {
   } catch {
     return item.marketplace_url;
   }
-}
-
-export function providerSlug(name) {
-  return String(name ?? '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
 // Rows that share a marketplace_url get a per-id link so every row stays unique.
@@ -223,8 +223,8 @@ export function renderReadme(listings, { date, externalMd = '' }) {
   if (more.length) {
     out.push('## More from these providers');
     out.push('');
-    for (const { provider, count } of more) {
-      const url = `${PROVIDER_URL}${providerSlug(provider)}`;
+    for (const { provider, count, slug } of more) {
+      const url = slug ? `${PROVIDER_URL}${slug}` : MARKETPLACE_URL;
       out.push(`- ${provider}: [+${count} more on payapi.market](${url})`);
     }
     out.push('');
