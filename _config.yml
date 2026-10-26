@@ -1,7 +1,12 @@
 # GitHub Pages config for payapi-market/awesome-x402-apis (repo root).
 # Pages renders README.md as the home page. No build step, no Actions needed.
 title: Awesome x402 APIs
-description: Settlement-verified x402 APIs that AI agents can pay per call in USDC on Base, Solana or Algorand. Curated from PayAPI Market.
+# Empty, not omitted. With the page title equal to site.title, jekyll-seo-tag
+# 2.8.0 appends site.description. Omitting it lets jekyll-github-metadata fill
+# the repo tagline, which is then appended too. "" blocks that fallback and
+# formats as blank, so the title is emitted once. The theme header uses the
+# repo tagline. Meta description is the README page default below.
+description: ""
 url: https://payapi-market.github.io
 baseurl: /awesome-x402-apis
 lang: en-GB
@@ -15,11 +20,17 @@ social:
   links:
     - https://payapi.market
     - https://github.com/payapi-market
+# jekyll-readme-index serves README.md at /. There is no index source file.
 defaults:
   - scope:
       path: ""
     values:
       image: https://payapi.market/og-image-v4.png
+  - scope:
+      path: README.md
+    values:
+      title: Awesome x402 APIs
+      description: Settlement-verified x402 APIs that AI agents can pay per call in USDC on Base, Solana or Algorand. Curated from PayAPI Market.
 exclude:
   - node_modules
   - scripts
