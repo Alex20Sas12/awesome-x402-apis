@@ -1,0 +1,29 @@
+# GitHub Pages config for payapi-market/awesome-x402-apis (repo root).
+# Pages renders README.md as the home page. No build step, no Actions needed.
+title: Awesome x402 APIs
+description: Settlement-verified x402 APIs that AI agents can pay per call in USDC on Base, Solana or Algorand. Curated from PayAPI Market.
+url: https://payapi-market.github.io
+baseurl: /awesome-x402-apis
+lang: en-GB
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+author: PayAPI Market
+social:
+  name: PayAPI Market
+  links:
+    - https://payapi.market
+    - https://github.com/payapi-market
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: https://payapi.market/og-image-v4.png
+exclude:
+  - node_modules
+  - scripts
+  - test
+  - package.json
+  - CONTRIBUTING.md
+  - data

@@ -362,7 +362,7 @@
       "id": "f1",
       "slug": "fallback-chain",
       "name": "Fallback Chain",
-      "description": "Fake description for Fallback Chain.",
+      "description": "Range 0.01\u20130.02 and a pause \u2014 then more.",
       "category": "Finance",
       "provider_name": "Gamma Co",
       "base_url": "https://gammaco.example.com/v1/f1",
@@ -447,6 +447,82 @@
       "reliability": {
         "score": 70,
         "band": "established"
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "b1",
+      "slug": "bazaar-ghost",
+      "name": "Bazaar Ghost API",
+      "description": "Imported from the Coinbase Bazaar and not signed up.",
+      "category": "Data",
+      "provider_name": "Unclaimed (bazaar)",
+      "base_url": "https://bazaar.example.com/v1/b1",
+      "price_min": 0.01,
+      "price_max": 0.02,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.01,
+          "tx_hash": "0xb1",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xb1"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/bazaar-ghost",
+      "reliability": {
+        "score": 90
+      },
+      "networks": [
+        {
+          "id": "eip155:8453",
+          "key": "base",
+          "label": "Base",
+          "advertised": true,
+          "settlement_verified": true
+        }
+      ]
+    },
+    {
+      "id": "h2",
+      "slug": "house-calendar",
+      "name": "House Calendar",
+      "description": "First-party PayAPI House listing.",
+      "category": "Tools",
+      "provider_name": "PayAPI House",
+      "base_url": "https://payapi.market/house/calendar",
+      "price_min": 0.002,
+      "price_max": 0.002,
+      "network": "base",
+      "payment_verified": true,
+      "verified_route_count": 1,
+      "verified_routes": [
+        {
+          "route": "/x",
+          "method": "GET",
+          "amount_usdc": 0.002,
+          "tx_hash": "0xh2",
+          "network": "eip155:8453",
+          "receipt_url": "https://basescan.org/tx/0xh2"
+        }
+      ],
+      "status": "live",
+      "marketplace_url": "https://payapi.market/api/house-calendar",
+      "reliability": {
+        "score": 70
       },
       "networks": [
         {

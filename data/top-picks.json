@@ -1,0 +1,150 @@
+{
+  "source": "https://payapi.market/best-x402-apis-2027",
+  "categories": [
+    {
+      "name": "Data",
+      "apis": [
+        {
+          "name": "LaborPulse",
+          "url": "https://payapi.market/api/laborpulse"
+        },
+        {
+          "name": "ProviderSignal Dental Market Intelligence",
+          "url": "https://payapi.market/api/providersignal-dental-market-intelligence"
+        },
+        {
+          "name": "Parallax",
+          "url": "https://payapi.market/api/parallax"
+        },
+        {
+          "name": "CSV Drift Evidence",
+          "url": "https://payapi.market/api/csv-drift-evidence"
+        },
+        {
+          "name": "HALOWERK EV Charging",
+          "url": "https://payapi.market/api/halowerk-ev-charging"
+        },
+        {
+          "name": "CanonicalHash, JSON Canonicalization API",
+          "url": "https://payapi.market/api/canonicalhash-json-canonicalization-api"
+        }
+      ]
+    },
+    {
+      "name": "Finance",
+      "apis": [
+        {
+          "name": "SameDayDesk Machine Commerce APIs",
+          "url": "https://payapi.market/api/samedaydesk-machine-commerce-apis"
+        },
+        {
+          "name": "Crypto Snapshot Pro - AI Trading Signals",
+          "url": "https://payapi.market/api/crypto-snapshot-pro-ai-trading-signals"
+        },
+        {
+          "name": "MacroPulse",
+          "url": "https://payapi.market/api/macropulse"
+        },
+        {
+          "name": "Cognilode Ticket Resale Underwriter",
+          "url": "https://payapi.market/api/cognilode-ticket-resale-underwriter"
+        },
+        {
+          "name": "ATLAS SEC Filing Delta",
+          "url": "https://payapi.market/api/atlas-sec-filing-delta"
+        },
+        {
+          "name": "Crypto Technicals & Web Utilities",
+          "url": "https://payapi.market/api/crypto-technicals-web-utilities"
+        }
+      ]
+    },
+    {
+      "name": "Intelligence",
+      "apis": [
+        {
+          "name": "zFinia machine_economy_changes_since",
+          "url": "https://payapi.market/api/zfinia-machine-economy-changes-since"
+        },
+        {
+          "name": "ot-intel-api",
+          "url": "https://payapi.market/api/ot-intel-api"
+        },
+        {
+          "name": "TELESINT",
+          "url": "https://payapi.market/api/telesint"
+        },
+        {
+          "name": "AgentPay",
+          "url": "https://payapi.market/api/agentpay"
+        },
+        {
+          "name": "DNS Inspector record lookup",
+          "url": "https://payapi.market/api/dns-inspector-record-lookup"
+        },
+        {
+          "name": "MCR Verified Demand Gap",
+          "url": "https://payapi.market/api/mcr-verified-demand-gap"
+        }
+      ]
+    },
+    {
+      "name": "Tools",
+      "apis": [
+        {
+          "name": "Lemon Toolshed",
+          "url": "https://payapi.market/api/lemon-toolshed"
+        },
+        {
+          "name": "kino402",
+          "url": "https://payapi.market/api/kino402"
+        },
+        {
+          "name": "Bounty Engineer Agent Commerce API",
+          "url": "https://payapi.market/api/bounty-engineer-agent-commerce-api"
+        },
+        {
+          "name": "x402 MCP Tools",
+          "url": "https://payapi.market/api/x402-mcp-tools"
+        },
+        {
+          "name": "zFinia Accessibility Contrast Calculator",
+          "url": "https://payapi.market/api/zfinia-accessibility-contrast-calculator"
+        },
+        {
+          "name": "Flat-rate LLM and EVM toolkit",
+          "url": "https://payapi.market/api/flat-rate-llm-and-evm-toolkit"
+        }
+      ]
+    },
+    {
+      "name": "Verification",
+      "apis": [
+        {
+          "name": "MachineMint, Unsigned Base Transaction Preflight",
+          "url": "https://payapi.market/api/machinemint-unsigned-base-transaction-preflight"
+        },
+        {
+          "name": "NexusEval Marketing Preflight",
+          "url": "https://payapi.market/api/nexuseval-marketing-preflight"
+        },
+        {
+          "name": "10x402",
+          "url": "https://payapi.market/api/10x402"
+        },
+        {
+          "name": "Contract Powers",
+          "url": "https://payapi.market/api/contract-powers"
+        },
+        {
+          "name": "Novarithm Trust & Commerce Checks",
+          "url": "https://payapi.market/api/novarithm-trust-commerce-checks"
+        },
+        {
+          "name": "SendCheck",
+          "url": "https://payapi.market/api/sendcheck"
+        }
+      ]
+    }
+  ]
+}
